@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'profile_details.dart';
 import 'result_view.dart';
+import 'job_results.dart';
 
 void main() => runApp(MyApp());
 
@@ -107,6 +108,15 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
+            ),
+            RaisedButton(
+              child: Text('Go to jobs list'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => JobResultsPage()),
+                );
+              },
             ),
             RaisedButton(
               child: Text('Go to profile detail'),

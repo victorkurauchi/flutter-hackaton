@@ -31,8 +31,8 @@ class ProfileDetails extends StatelessWidget {
           titleSection,
           buttonSection,
           textSection,
-          Text('Go back!'),
           RaisedButton(
+            child: const Text('Go back'),
             onPressed: () {
               Navigator.pop(context);
             },
