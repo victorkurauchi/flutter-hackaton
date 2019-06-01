@@ -16,7 +16,7 @@ class _ResultViewState extends State<ResultView> {
   String profileMark = """{
         "name": "Mark Greenaway",
         "skills": ["Programing", "Statistics"],
-        "biography": "My life history",
+        "biography": "Flutter Android",
         "company": "CBA",
         "contactDetails": ["Phone: 0438 605 232", "Email: certifiedwaif@gmail.com"],
         "portfolio": ["https://github.com/certifiedwaif/"],
@@ -26,7 +26,7 @@ class _ResultViewState extends State<ResultView> {
   String profileNootan =  """{
         "name": "Nootan Ghimire",
         "skills": ["sleeping"],
-        "biography": "Sleep is life",
+        "biography": "flutter",
         "company": "The Iconic",
         "contactDetails": ["Phone: 1300 DOZEOFF", "Website: wat.dafuq.is/website"],
         "portfolio": ["https://github.com/nootanghimire"],
@@ -36,7 +36,7 @@ class _ResultViewState extends State<ResultView> {
   String profileVictor =  """{
         "name": "Victor Kurauchi",
         "skills": ["Android Developer", "Android", "Flutter"],
-        "biography": "Frontend",
+        "biography": "Ios, Flutter, C++",
         "company": "The Iconic",
         "contactDetails": ["Phone: 1300 DOZEOFF", "Website: wat.dafuq.is/website"],
         "portfolio": ["https://github.com/nootanghimire"],
@@ -46,7 +46,7 @@ class _ResultViewState extends State<ResultView> {
   String profileElmira = """{
         "name": "Elmira Asadzadeh",
         "skills": ["Flutter", "Android"],
-        "biography": "Coffee is life. Flutter proficient",
+        "biography": "Flutter proficient",
         "company": "The Iconic",
         "contactDetails": ["Phone: 1300 NOFOLLOW", "Website: nofollow"],
         "portfolio": ["Awesome Android Project"],
@@ -56,7 +56,7 @@ class _ResultViewState extends State<ResultView> {
   String profileIryna = """{
         "name": "Iryna",
         "skills": ["Cooking Food", "Developing Stuff", "Flutter"],
-        "biography": "Software Engineer",
+        "biography": "Software Engineer, Flutter",
         "company": "The Iconic",
         "contactDetails": ["Phone: 1300 NOFOLLOW", "Website: nofollow"],
         "portfolio": ["Awesome Android Project 2"],
