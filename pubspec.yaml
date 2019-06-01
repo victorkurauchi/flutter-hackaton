@@ -39,6 +39,10 @@ dev_dependencies:
 flutter:
   assets:
     - assets/nootan.jpg
+    - assets/elmira.jpg
+    - assets/iryna.jpg
+    - assets/victor.jpg
+    - assets/mark.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

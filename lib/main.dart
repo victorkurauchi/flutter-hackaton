@@ -174,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            RaisedButton(
+         /*   RaisedButton(
               child: Text(goToProfileDetail()),
               onPressed: () {
                 Navigator.push(
@@ -182,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(builder: (context) => ProfileDetails()),
                 );
               },
-            ),
+            ),*/
           ],
         ),
       ),
