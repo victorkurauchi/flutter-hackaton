@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'profile_details.dart';
 
 void main() => runApp(MyApp());
 
@@ -111,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                  MaterialPageRoute(builder: (context) => ProfileDetails()),
                 );
               },
             ),
