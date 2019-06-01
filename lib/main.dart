@@ -4,6 +4,7 @@ import 'result_view.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:intl/intl.dart';
 import 'job_results.dart';
+import 'messages_all.dart';
 
 void main() => runApp(MyApp());
 
