@@ -61,7 +61,7 @@ class _ResultViewState extends State<ResultView> {
         title: Text("Results"),
       ),
       body: Center(
-        child: ProfileResults(_profiles)
+        child: ProfileResults(_profiles),
       )
     );
   }

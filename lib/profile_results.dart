@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackaton/profile_details.dart';
 import 'profile.dart';
 
 class ProfileResults extends StatelessWidget {
@@ -7,12 +8,20 @@ class ProfileResults extends StatelessWidget {
   ProfileResults(this.profiles);
 
   Widget _buildProfileItem(BuildContext context, int index) {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Text(profiles[index].name),
-          Text(profiles[index].biography)
-        ],
+    return InkWell(
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProfileDetails()),
+        );
+      },
+      child: Card(
+        child: Column(
+          children: <Widget>[
+            Text(profiles[index].name),
+            Text(profiles[index].biography)
+          ],
+        ),
       ),
     );
   }
