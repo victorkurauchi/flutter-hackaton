@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             desc: 'Title of the app'
             );
     return MaterialApp(
-      title: flutterDemo(),
+      title: Intl.withLocale('en', flutterDemo),
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -55,7 +55,7 @@ class ProfilePage extends StatelessWidget {
             desc: 'Profile Details'
             );
     return Text(
-      profileDetails(),
+      Intl.withLocale('en', profileDetails),
     );
   }
 }
@@ -207,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             Padding(padding: EdgeInsets.only(top: 28.0)),
             RaisedButton(
-              child: Text(jobsList()),
+              child: Text(Intl.withLocale('en', jobsList())),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -216,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             RaisedButton(
-              child: Text(searchMentorProfiles()),
+              child: Text(Intl.withLocale('en', searchMentorProfiles())),
               color: Theme.of(context).accentColor,
               elevation: 4.0,
               splashColor: Colors.blueGrey,
