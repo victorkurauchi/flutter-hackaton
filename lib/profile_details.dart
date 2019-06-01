@@ -22,12 +22,13 @@ class ProfileDetails extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Image.network(            
-            'https://images.unsplash.com/photo-1558980395-be8a5fcb4251?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80',
-            width: 600,
-            height: 240,
-            fit: BoxFit.cover,
-          ),
+          Photo(),
+//          Image.network(
+//            'https://images.unsplash.com/photo-1558980395-be8a5fcb4251?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80',
+//            width: 600,
+//            height: 240,
+//            fit: BoxFit.cover,
+//          ),
           titleSection,
           buttonSection,
           textSection,
@@ -121,8 +122,9 @@ Widget textSection = Container(
 class Photo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var assetsImage = new AssetImage('assets/explore.png');
-    var image = new Image(image: assetsImage, width: 48.0, height: 48.0);
-    return new Container(child: image);
+//    var assetsImage = new AssetImage();
+    var image = Image.asset('assets/nootan.jpg');
+//    var image = new Image(image: assetsImage, width: 48.0, height: 48.0);
+    return new Container(child: image, height: 200.0, width: 60.0,color: Colors.red,);
   }
 }
