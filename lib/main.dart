@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'profile_details.dart';
 import 'result_view.dart';
 import 'package:intl/intl.dart';
+import 'job_results.dart';
 
 void main() => runApp(MyApp());
 
@@ -121,6 +122,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
 //            style: TextStyle(color: Colors.red, fontWeight: FontWeight.w300)
               ),
+            ),
+            RaisedButton(
+              child: Text('Go to jobs list'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => JobResultsPage()),
+                );
+              },
             ),
             RaisedButton(
               child: const Text('Search Mentor Profiles'),
