@@ -4,12 +4,16 @@ import 'job.dart';
 import 'job_details.dart';
 
 class JobState extends State {
-  final _suggestions = <WordPair>[];
+  final _suggestions = <Job>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
-  final Set<WordPair> _saved = Set<WordPair>();
+  final Set<Job> _saved = Set<Job>();
+  List<Job> jobs;
+
+  JobState({ Key key, @required this.jobs }) : super();
 
   @override
   Widget build(BuildContext context) {
+    // print('jobs in the state ${this.jobs.toString()}');
     return Scaffold(
       appBar: AppBar(
         title: Text('Job results'),
@@ -26,10 +30,10 @@ class JobState extends State {
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
           final Iterable<ListTile> tiles = _saved.map(
-            (WordPair pair) {
+            (Job pair) {
               return ListTile(
                 title: Text(
-                  pair.asPascalCase,
+                  pair.toString(),
                   style: _biggerFont,
                 ),
               );
@@ -54,24 +58,26 @@ class JobState extends State {
   }
 
   Widget _buildSuggestions() {
-  return ListView.builder(
-    padding: const EdgeInsets.all(16.0),
-    itemBuilder: /*1*/ (context, i) {
-      if (i.isOdd) return Divider(); /*2*/
+    return ListView.builder(
+      padding: const EdgeInsets.all(16.0),
+      itemBuilder: (context, i) {
+        if (i.isOdd) return Divider();
 
-      final index = i ~/ 2; /*3*/
-      if (index >= _suggestions.length) {
-        _suggestions.addAll(generateWordPairs().take(10)); /*4*/
-      }
-      return _buildRow(_suggestions[index]);
+        final index = i ~/ 2;
+
+        if (index >= _suggestions.length) {
+          _suggestions.addAll(this.jobs);
+        }
+        return _buildRow(_suggestions[index]);
     });
   }
 
-  Widget _buildRow(WordPair pair) {
+  Widget _buildRow(Job pair) {
     final bool alreadySaved = _saved.contains(pair);
+    
     return ListTile(
       title: Text(
-        "Software Engineer at ${pair.asPascalCase}",
+        pair.toString(),
         style: _biggerFont,
       ),
       trailing: Icon(
@@ -79,7 +85,6 @@ class JobState extends State {
         color: alreadySaved ? Colors.red : null,
       ),
       onTap: () {
-        var job = new Job(pair.asString, 'a nice description');
         setState(() {
           if (alreadySaved) {
             _saved.remove(pair);
@@ -90,7 +95,7 @@ class JobState extends State {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => JobDetailScreen(job: job),
+            builder: (context) => JobDetailScreen(job: pair),
           ),
         );
       },
@@ -99,17 +104,25 @@ class JobState extends State {
 }
 
 class JobResults extends StatefulWidget {
+  final List<Job> jobs;
+
+  JobResults({ Key key, @required this.jobs }) :super(key: key);
+
   @override
-  JobState createState() => JobState();
+  JobState createState() => JobState(jobs: jobs);
 }
 
-class JobResultsPage extends StatelessWidget {            
+class JobResultsPage extends StatelessWidget {       
   @override            
-  Widget build(BuildContext context) {            
+  Widget build(BuildContext context) {
+    List<Job> jobs = [];
+    var names = generateWordPairs().take(10);
+    names.forEach((element) => jobs.add(new Job('Flutter Engineer', 'Work at ${element.asPascalCase} doing cool stuff')));
+
     return Scaffold(            
       body: Center(
-        child: JobResults(),            
-      ),            
+        child: JobResults(jobs: jobs),            
+      ),
     );
   }
 }
