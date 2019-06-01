@@ -22,7 +22,8 @@ class _ResultViewState extends State<ResultView> {
       'Stupidest Guy ever',
       'The Iconic',
       ['@donotfollowme'],
-      ['t1', 't2']
+      ['t1', 't2'],
+      'https://via.placeholder.com/200'
     ));
     _profiles.add(new Profile(
         'Nootan Ghimire 2',
@@ -30,7 +31,8 @@ class _ResultViewState extends State<ResultView> {
         'Stupidest Guy ever',
         'The Iconic',
         ['@donotfollowme'],
-        ['t1', 't2']
+        ['t1', 't2'],
+      'https://via.placeholder.com/200'
     ));
   }
 
