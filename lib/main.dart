@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'profile_details.dart';
 import 'result_view.dart';
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:intl/intl.dart';
 import 'job_results.dart';
+import 'messages_all.dart';
 
 void main() => runApp(MyApp());
 
@@ -73,18 +75,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  List<String> added = [];
+  String currentText = "";
+  GlobalKey<AutoCompleteTextFieldState<String>> key = new GlobalKey();
+
+  _MyHomePageState() {
+    textField = SimpleAutoCompleteTextField(
+      key: key,
+      suggestions: suggestions,
+      textChanged: (text) => currentText = text,
+      textSubmitted: (text) => setState(() {
+        added.add(text);
+      }),
+    );
   }
+
+  List<String> suggestions = [
+    "Flutter",
+    "Flying",
+    "Flatter",
+    "Flight",
+    "Android",
+    "Mobile",
+    "Android Application",
+    "Flurr",
+  ];
+
+  SimpleAutoCompleteTextField textField;
+
 
   tellUsWhatYouWantToLearn() =>
     Intl.message('Tell us what do you want to learn?',
@@ -92,13 +111,13 @@ class _MyHomePageState extends State<MyHomePage> {
             args: [],
             desc: 'Tell us what do you want to learn?'
             );
-  jobsList() => 
+  jobsList() =>
     Intl.message('Go to jobs list',
             name: 'jobsList',
             args: [],
             desc: 'Go to jobs list'
             );
-  searchMentorProfiles() => 
+  searchMentorProfiles() =>
     Intl.message('Search Mentor Profiles',
             name: 'searchMentorProfiles',
             args: [],
@@ -122,6 +141,40 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+
+          actions: [
+            new IconButton(
+                icon: new Icon(Icons.edit),
+                onPressed: () => showDialog(
+                    builder: (_) {
+                      String text = "";
+
+                      return new AlertDialog(
+                          title: new Text("Change Suggestions"),
+                          content:
+                          new TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Tell us what do you want to learn?',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                                ),
+                              ),
+                              onChanged: (newText) => text = newText
+                          ),
+                          actions: [
+                            new FlatButton(
+                                onPressed: () {
+                                  if (text != "") {
+                                    suggestions.add(text);
+                                    textField.updateSuggestions(suggestions);
+                                  }
+                                  Navigator.pop(context);
+                                },
+                                child: new Text("Add")),
+                          ]);
+                    },
+                    context: context))
+          ]
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -144,15 +197,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
 
-            TextField(
-              decoration: InputDecoration(
-                hintText: tellUsWhatYouWantToLearn(),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                ),
-//            style: TextStyle(color: Colors.red, fontWeight: FontWeight.w300)
-              ),
-            ),
+            new ListTile(
+                title: textField,
+             ),
+
+            Padding(padding: EdgeInsets.only(top: 28.0)),
             RaisedButton(
               child: Text(jobsList()),
               onPressed: () {
@@ -174,18 +223,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-         /*   RaisedButton(
-              child: Text(goToProfileDetail()),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ProfileDetails()),
-                );
-              },
-            ),*/
           ],
         ),
-      ),
-    );
-  }
+      ) // This trailing comma makes auto-formatting nicer for build methods
+    );}
 }
