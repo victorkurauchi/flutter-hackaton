@@ -21,11 +21,11 @@ class Profile {
 
   Profile.fromJson(Map<String, dynamic> json)
       : name = json['name'],
-        skills = json['skills'],
+        skills = List<String>.from(json['skills']),
         biography = json['biography'],
         company = json['company'],
-        contactDetails = json['contactDetails'],
-        portfolio = json['portfolio'],
+        contactDetails = List<String>.from(json['contactDetails']),
+        portfolio = List<String>.from(json['portfolio']),
         imageURL = json['imageURL'];
 
   Map<String, dynamic> toJson() => {
@@ -43,7 +43,7 @@ class Profile {
 // Example code
 void jsonEncodeDecodeExample() {
   final jsonString = """{
-        name: 'Mark',
+        "name": 'Mark',
         skills: ['Programing', 'Statistics'],
         biography: 'My life history',
         company: 'CBA',
