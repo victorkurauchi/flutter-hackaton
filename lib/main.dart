@@ -3,6 +3,7 @@ import 'profile_details.dart';
 import 'result_view.dart';
 import 'package:intl/intl.dart';
 import 'job_results.dart';
+import 'messages_all.dart';
 
 void main() => runApp(MyApp());
 
