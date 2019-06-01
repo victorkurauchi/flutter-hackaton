@@ -12,7 +12,7 @@ class ProfileResults extends StatelessWidget {
       onTap: (){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ProfileDetails()),
+          MaterialPageRoute(builder: (context) => ProfileDetails(profiles[index])),
         );
       },
       child: Card(

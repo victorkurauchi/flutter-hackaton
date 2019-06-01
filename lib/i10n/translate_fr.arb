@@ -1,0 +1,45 @@
+{
+  "@@last_modified": "2019-06-01T14:58:41.490170",
+  "findYourMentor": "Trouvez votre mentor avec nous!",
+  "@findYourMentor": {
+    "description": "Find your mentor with us!",
+    "type": "text",
+    "placeholders": {}
+  },
+  "flutterDemo": "Démo Flutter",
+  "@flutterDemo": {
+    "description": "Title of the app",
+    "type": "text",
+    "placeholders": {}
+  },
+  "profileDetails": "Détails du profil",
+  "@profileDetails": {
+    "description": "Profile Details",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tellUsWhatYouWantToLearn": "Dis nous ce que tu veux apprendre?",
+  "@tellUsWhatYouWantToLearn": {
+    "description": "Tell us what do you want to learn?",
+    "type": "text",
+    "placeholders": {}
+  },
+  "jobsList": "Aller à la liste des emplois",
+  "@jobsList": {
+    "description": "Go to jobs list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "searchMentorProfiles": "Rechercher des profils de mentor",
+  "@searchMentorProfiles": {
+    "description": "Search Mentor Profiles",
+    "type": "text",
+    "placeholders": {}
+  },
+  "goToProfileDetail": "Aller au détail du profil",
+  "@goToProfileDetail": {
+    "description": "Go to profile detail",
+    "type": "text",
+    "placeholders": {}
+  }
+}
