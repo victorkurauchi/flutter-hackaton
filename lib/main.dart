@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'profile_details.dart';
 import 'result_view.dart';
+import 'package:intl/intl.dart';
+import 'job_results.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,8 +10,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    flutterDemo() => Intl.message('Flutter Demo',
+            name: 'flutterDemo',
+            args: [],
+            desc: 'Title of the app'
+            );
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: flutterDemo(),
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -29,8 +36,13 @@ class MyApp extends StatelessWidget {
 
 class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
+    profileDetails() => Intl.message('Profile Details',
+            name: 'profileDetails',
+            args: [],
+            desc: 'Profile Details'
+            );
     return Text(
-      'Profile Details',
+      profileDetails(),
     );
   }
 }
@@ -110,6 +122,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
 //            style: TextStyle(color: Colors.red, fontWeight: FontWeight.w300)
               ),
+            ),
+            RaisedButton(
+              child: Text('Go to jobs list'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => JobResultsPage()),
+                );
+              },
             ),
             RaisedButton(
               child: const Text('Search Mentor Profiles'),
