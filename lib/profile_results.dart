@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hackaton/profile_details.dart';
 import 'profile.dart';
+import 'profile_details.dart';
 
 class ProfileResults extends StatelessWidget {
   final List<Profile> profiles;
