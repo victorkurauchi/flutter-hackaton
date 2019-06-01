@@ -6,7 +6,11 @@ import 'package:intl/intl.dart';
 import 'job_results.dart';
 import 'messages_all.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  Intl.defaultLocale = 'en';
+  await initializeMessages('en');
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
     findYourMentor() =>
