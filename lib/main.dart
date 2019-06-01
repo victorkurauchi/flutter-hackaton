@@ -7,6 +7,13 @@ import 'job_results.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+    findYourMentor() =>
+        Intl.message('Find your mentor with us!',
+            name: 'findYourMentor',
+            args: [],
+            desc: 'Find your mentor with us!'
+            );
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.deepOrange,
       ),
-      home: MyHomePage(title: 'Find your mentor with us!'),
+      home: MyHomePage(title: findYourMentor()),
     );
   }
 }
@@ -79,6 +86,29 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  tellUsWhatYouWantToLearn() =>
+    Intl.message('Tell us what do you want to learn?',
+            name: 'tellUsWhatYouWantToLearn',
+            args: [],
+            desc: 'Tell us what do you want to learn?'
+            );
+  jobsList() => 
+    Intl.message('Go to jobs list',
+            name: 'jobsList',
+            args: [],
+            desc: 'Go to jobs list'
+            );
+  searchMentorProfiles() => 
+    Intl.message('Search Mentor Profiles',
+            name: 'searchMentorProfiles',
+            args: [],
+            desc: 'Search Mentor Profiles'
+            );
+  goToProfileDetail() => Intl.message('Go to profile detail',
+            name: 'goToProfileDetail',
+            args: [],
+            desc: 'Go to profile detail'
+            );
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -116,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             TextField(
               decoration: InputDecoration(
-                hintText: 'Tell us what do you want to learn?',
+                hintText: tellUsWhatYouWantToLearn(),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                 ),
@@ -124,7 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             RaisedButton(
-              child: Text('Go to jobs list'),
+              child: Text(jobsList()),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -133,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             RaisedButton(
-              child: const Text('Search Mentor Profiles'),
+              child: Text(searchMentorProfiles()),
               color: Theme.of(context).accentColor,
               elevation: 4.0,
               splashColor: Colors.blueGrey,
@@ -145,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             RaisedButton(
-              child: Text('Go to profile detail'),
+              child: Text(goToProfileDetail()),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -156,11 +186,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
