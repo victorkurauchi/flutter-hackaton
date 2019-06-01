@@ -19,18 +19,38 @@ class _ResultViewState extends State<ResultView> {
     _profiles.add(new Profile(
       'Nootan Ghimire',
       ['Cooking Food', 'Flutter'],
-      'Stupidest Guy ever',
+      'React',
       'The Iconic',
       ['@donotfollowme'],
-      ['t1', 't2']
+      ['t1', 't2'],
+      'https://via.placeholder.com/200'
     ));
     _profiles.add(new Profile(
         'Nootan Ghimire 2',
         ['Cooking Food', 'Flutter'],
-        'Stupidest Guy ever',
+        'Frontend',
         'The Iconic',
         ['@donotfollowme'],
-        ['t1', 't2']
+        ['t1', 't2'],
+      'https://via.placeholder.com/200'
+    ));
+    _profiles.add(new Profile(
+        'Elmira',
+        ['Android Developer', 'Abdroid'],
+        'Android Developer',
+        'The Iconic',
+        ['@Elmira'],
+        ['t1', 't2'],
+        'https://via.placeholder.com/200'
+    ));
+    _profiles.add(new Profile(
+        'Iryna',
+        ['Cooking Food', 'Developing stuff'],
+        'Software engeneer',
+        'The Iconic',
+        ['@donotfollowme'],
+        ['t1', 't2'],
+        'https://via.placeholder.com/200'
     ));
   }
 

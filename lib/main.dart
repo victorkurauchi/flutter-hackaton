@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Find your mentor with us!'),
     );
   }
 }
@@ -102,12 +102,15 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many timesssss:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Tell us what do you want to learn?',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                ),
+//            style: TextStyle(color: Colors.red, fontWeight: FontWeight.w300)
+              ),
             ),
             RaisedButton(
               child: Text('Go to jobs list'),
@@ -119,20 +122,23 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             RaisedButton(
+              child: const Text('Search Mentor Profiles'),
+              color: Theme.of(context).accentColor,
+              elevation: 4.0,
+              splashColor: Colors.blueGrey,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ResultView()),
+                );
+              },
+            ),
+            RaisedButton(
               child: Text('Go to profile detail'),
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ProfileDetails()),
-                );
-              },
-            ),
-            RaisedButton(
-              child: Text('Go to profile results mock'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ResultView()),
                 );
               },
             ),
