@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'job.dart';
+import 'job_details.dart';
 
 class JobState extends State {
   final _suggestions = <WordPair>[];
@@ -77,6 +79,7 @@ class JobState extends State {
         color: alreadySaved ? Colors.red : null,
       ),
       onTap: () {
+        var job = new Job(pair.asString, 'a nice description');
         setState(() {
           if (alreadySaved) {
             _saved.remove(pair);
@@ -84,6 +87,12 @@ class JobState extends State {
             _saved.add(pair); 
           } 
         });
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => JobDetailScreen(job: job),
+          ),
+        );
       },
     );
   }
