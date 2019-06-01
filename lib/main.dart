@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile_details.dart';
+import 'result_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -113,6 +114,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ProfileDetails()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('Go to profile results mock'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ResultView()),
                 );
               },
             ),
