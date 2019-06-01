@@ -2,15 +2,29 @@ import 'package:flutter/material.dart';
 import 'profile_details.dart';
 import 'result_view.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
+import 'package:intl/intl.dart';
+import 'job_results.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+    findYourMentor() =>
+        Intl.message('Find your mentor with us!',
+            name: 'findYourMentor',
+            args: [],
+            desc: 'Find your mentor with us!'
+            );
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    flutterDemo() => Intl.message('Flutter Demo',
+            name: 'flutterDemo',
+            args: [],
+            desc: 'Title of the app'
+            );
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: flutterDemo(),
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -23,15 +37,20 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.deepOrange,
       ),
-      home: MyHomePage(title: 'Find your mentor with us!'),
+      home: MyHomePage(title: findYourMentor()),
     );
   }
 }
 
 class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
+    profileDetails() => Intl.message('Profile Details',
+            name: 'profileDetails',
+            args: [],
+            desc: 'Profile Details'
+            );
     return Text(
-      'Profile Details',
+      profileDetails(),
     );
   }
 }
@@ -85,6 +104,29 @@ class _MyHomePageState extends State<MyHomePage> {
   SimpleAutoCompleteTextField textField;
 
 
+  tellUsWhatYouWantToLearn() =>
+    Intl.message('Tell us what do you want to learn?',
+            name: 'tellUsWhatYouWantToLearn',
+            args: [],
+            desc: 'Tell us what do you want to learn?'
+            );
+  jobsList() =>
+    Intl.message('Go to jobs list',
+            name: 'jobsList',
+            args: [],
+            desc: 'Go to jobs list'
+            );
+  searchMentorProfiles() =>
+    Intl.message('Search Mentor Profiles',
+            name: 'searchMentorProfiles',
+            args: [],
+            desc: 'Search Mentor Profiles'
+            );
+  goToProfileDetail() => Intl.message('Go to profile detail',
+            name: 'goToProfileDetail',
+            args: [],
+            desc: 'Go to profile detail'
+            );
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -160,7 +202,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
             Padding(padding: EdgeInsets.only(top: 28.0)),
             RaisedButton(
-              child: const Text('Search Mentor Profiles'),
+              child: Text(jobsList()),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => JobResultsPage()),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text(searchMentorProfiles()),
               color: Theme.of(context).accentColor,
               elevation: 4.0,
               splashColor: Colors.blueGrey,
@@ -174,12 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
-
 }
-
-
-
-
-

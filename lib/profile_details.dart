@@ -22,17 +22,18 @@ class ProfileDetails extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Image.network(            
-            'https://images.unsplash.com/photo-1558980395-be8a5fcb4251?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80',
-            width: 600,
-            height: 240,
-            fit: BoxFit.cover,
-          ),
+          Photo(),
+//          Image.network(
+//            'https://images.unsplash.com/photo-1558980395-be8a5fcb4251?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80',
+//            width: 600,
+//            height: 240,
+//            fit: BoxFit.cover,
+//          ),
           titleSection,
           buttonSection,
           textSection,
-          Text('Go back!'),
           RaisedButton(
+            child: const Text('Go back'),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -79,14 +80,14 @@ Widget titleSection = Container(
             Container(
               padding: const EdgeInsets.only(bottom: 8),
               child: Text(
-                'Oeschinen Lake Campground',
+                'Nootan Ghimire',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             Text(
-              'Kandersteg, Switzerland',
+              'Flutter Developer',
               style: TextStyle(
                 color: Colors.grey[500],
               ),
@@ -107,12 +108,23 @@ Widget titleSection = Container(
 Widget textSection = Container(
   padding: const EdgeInsets.all(32),
   child: Text(
-    'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
-        'Alps. Situated 1,578 meters above sea level, it is one of the '
-        'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
-        'half-hour walk through pastures and pine forest, leads you to the '
-        'lake, which warms to 20 degrees Celsius in the summer. Activities '
-        'enjoyed here include rowing, and riding the summer toboggan run.',
+    'You can say Im not like any other developer!'
+        'Not because Im really good (although thats true) but'
+        'because Im not a coffee lover (deal breaker?).'
+        'Ive been in the full stack space for a few years now.'
+        'Im proficient in Flutter, Dart, Angular, React, Firebase, Node, .NET and the usual databases.'
+        'My focus for future roles is Flutter or Flutter with a mixture of other tech',
     softWrap: true,
   ),
 );
+
+
+class Photo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+//    var assetsImage = new AssetImage();
+    var image = Image.asset('assets/nootan.jpg');
+//    var image = new Image(image: assetsImage, width: 48.0, height: 48.0);
+    return new Container(child: image, height: 200.0, width: 60.0,color: Colors.red,);
+  }
+}
